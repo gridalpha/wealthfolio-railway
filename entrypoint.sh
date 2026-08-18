@@ -19,8 +19,9 @@ chown -R 1000:1000 "$DATA_DIR"
 : "${WF_STATIC_DIR:=/app/dist}"
 # Railway always terminates TLS at its edge, so the session cookie is always
 # eligible for Secure. "auto" would also work (the edge sends X-Forwarded-Proto)
-# but depends on a header the platform health probe does not send.
-: "${WF_COOKIE_SECURE:=always}"
+# but depends on a header the platform health probe does not send. The server
+# spells this policy "true" — "always" is the internal enum name and is rejected.
+: "${WF_COOKIE_SECURE:=true}"
 
 # The server refuses to start with WF_CORS_ALLOW_ORIGINS="*" while auth is on, so
 # name the deployment's own origin. Railway injects RAILWAY_PUBLIC_DOMAIN itself,

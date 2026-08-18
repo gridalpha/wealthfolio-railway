@@ -25,7 +25,7 @@ variable cannot express, then drops back to the image's own unprivileged user.
 | `PORT` | no | Defaults to `8088`. |
 | `WF_CORS_ALLOW_ORIGINS` | no | Defaults to `https://$RAILWAY_PUBLIC_DOMAIN`. Set it when you serve the app from a custom domain. |
 | `WF_AUTH_PASSWORD_HASH` | no | Supply your own Argon2id PHC string instead of letting the entrypoint derive one. |
-| `WF_COOKIE_SECURE` | no | Defaults to `always`, which is correct behind Railway's TLS edge. |
+| `WF_COOKIE_SECURE` | no | `auto`, `true` or `false`. Defaults to `true`, which is correct behind Railway's TLS edge. |
 | `WF_MCP_ENABLED` | no | Defaults to `false`. Enabling it exposes an MCP endpoint for AI agents; it requires auth to be configured. |
 | `WF_OIDC_*` | no | Optional SSO. See upstream's `.env.web.example`. |
 
